@@ -10,7 +10,7 @@ body {
 
 .prices {
   width: 1176px;
-  margin: 126px auto 126px auto;
+  margin: 70px auto 70px auto;
   display: flex;
   column-gap: 18px;
 }
@@ -293,4 +293,3 @@ body {
 }
 
 /*# sourceMappingURL=styles.css.map */
-
