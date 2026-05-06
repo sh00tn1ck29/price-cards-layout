@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   max-width: 1440px;
   font-family: "Montserrat", sans-serif;
@@ -5,30 +11,28 @@ body {
   background-color: #141b1c;
   color: #fff;
   font-size: 15px;
-  box-sizing: border-box;
+  margin: 0 auto;
 }
 
-.prices {
-  width: 1176px;
-  margin: 65px auto 65px auto;
+.Desktop {
   display: flex;
-  column-gap: 18px;
-}
-@media screen and (max-width: 1200px) {
-  .prices {
-    flex-direction: column;
-    align-items: center;
-    row-gap: 30px;
-    max-width: 80%;
-  }
-}
-@media screen and (max-width: 480px) {
-  .prices {
-    width: 100%;
-  }
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #141b1c;
+  padding: 65px 20px;
 }
 
-.card {
+.price-cards-container {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.price-card {
   width: 380px;
   background-color: #334247;
   display: flex;
@@ -37,11 +41,16 @@ body {
   overflow: hidden;
 }
 @media screen and (max-width: 1200px) {
-  .card {
+  .price-card {
     width: 100%;
+    max-width: 500px;
   }
 }
-.card__ribbon {
+.price-card--popular {
+  position: relative;
+  overflow: hidden;
+}
+.price-card__ribbon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,206 +61,221 @@ body {
   font-size: 14px;
   font-weight: 700;
   position: absolute;
-  top: 4%;
-  left: 70%;
+  top: 20px;
+  right: -40px;
+  z-index: 10;
 }
 @media screen and (max-width: 1200px) {
-  .card__ribbon {
+  .price-card__ribbon {
     width: 34vw;
     height: 50px;
     font-size: 20px;
+    top: 15px;
+    right: -80px;
   }
 }
 @media screen and (max-width: 768px) {
-  .card__ribbon {
+  .price-card__ribbon {
     width: 34vw;
     height: 40px;
     font-size: 15px;
+    top: 10px;
+    right: -70px;
   }
 }
 @media screen and (max-width: 480px) {
-  .card__ribbon {
-    font-size: clamp(2.5vw, 2.5vw, 12px);
-    height: clamp(5.2vw, 5.2vw, 25px);
+  .price-card__ribbon {
+    width: 120px;
+    height: 25px;
+    font-size: 10px;
+    top: 12px;
+    right: -45px;
   }
 }
-.card__header {
+.price-card__header {
   display: flex;
   flex-direction: column;
   height: 130px;
-}
-@media screen and (max-width: 1200px) {
-  .card__header {
-    height: auto;
-  }
-}
-.card__title {
-  font-size: 35px;
-  font-weight: 700;
-  line-height: normal;
-  margin: 32px 0px 0 0px;
   text-align: center;
 }
 @media screen and (max-width: 1200px) {
-  .card__title {
+  .price-card__header {
+    height: auto;
+  }
+}
+.price-card_title {
+  font-size: 35px;
+  font-weight: 700;
+  margin-top: 32px;
+  margin-bottom: 0;
+  text-align: center;
+}
+@media screen and (max-width: 1200px) {
+  .price-card_title {
     font-size: 50px;
   }
 }
 @media screen and (max-width: 768px) {
-  .card__title {
+  .price-card_title {
     font-size: 35px;
   }
 }
 @media screen and (max-width: 480px) {
-  .card__title {
-    margin: 16px 0px 0 0px;
-    font-size: clamp(5.62vw, 5.62vw, 27px);
+  .price-card_title {
+    font-size: 27px;
+    margin-top: 16px;
   }
 }
-.card__subtitle {
-  margin: 0px 0px 31px 0px;
-  font-weight: 300;
-  text-align: center;
+.price-card__subtitle {
   font-size: 20px;
+  font-weight: 300;
+  margin-top: 5px;
+  margin-bottom: 31px;
+  text-align: center;
 }
 @media screen and (max-width: 1200px) {
-  .card__subtitle {
+  .price-card__subtitle {
     font-size: 30px;
   }
 }
 @media screen and (max-width: 768px) {
-  .card__subtitle {
+  .price-card__subtitle {
     font-size: 20px;
   }
 }
 @media screen and (max-width: 480px) {
-  .card__subtitle {
-    margin: 9px 0px 18px 0px;
-    font-size: clamp(3.75vw, 3.75vw, 18px);
+  .price-card__subtitle {
+    font-size: 18px;
+    margin-bottom: 18px;
   }
 }
-.card__price-block {
+.price-card__price-block {
   width: 100%;
   height: 105px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #5bb189;
 }
 @media screen and (max-width: 480px) {
-  .card__price-block {
-    height: clamp(14.58vw, 14.58vw, 70px);
+  .price-card__price-block {
+    height: 70px;
   }
 }
-.card__price {
+.price-card_price {
   font-size: 55px;
   font-weight: 700;
 }
 @media screen and (max-width: 480px) {
-  .card__price {
-    font-size: clamp(8.3vw, 8.3vw, 40px);
+  .price-card_price {
+    font-size: 40px;
   }
 }
-.card__description {
+.price-card_description {
   width: 320px;
-  max-height: 36px;
   line-height: 18px;
   text-align: center;
-  margin-block: 40px;
-  margin-inline: auto;
+  margin: 40px auto;
+  font-size: 15px;
+  font-weight: 300;
 }
 @media screen and (max-width: 1200px) {
-  .card__description {
+  .price-card_description {
     font-size: 20px;
     width: 80%;
+    line-height: 1.3;
+  }
+}
+@media screen and (max-width: 768px) {
+  .price-card_description {
+    font-size: 15px;
   }
 }
 @media screen and (max-width: 480px) {
-  .card__description {
-    font-size: clamp(3.75vw, 3.75vw, 18px);
+  .price-card_description {
+    font-size: 14px;
+    margin: 20px auto;
     width: 90%;
-    margin-block: clamp(4.16vw, 4.16vw, 20px);
   }
 }
-.card__features {
-  list-style-type: none;
+.price-card_options-list {
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 @media screen and (max-width: 768px) {
-  .card__features {
+  .price-card_options-list {
     display: flex;
     flex-wrap: wrap;
   }
 }
 @media screen and (max-width: 480px) {
-  .card__features {
+  .price-card_options-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
 }
-.card__feature {
+.price-card__option {
   height: 50px;
   display: flex;
   align-items: center;
-  padding-left: 22px;
+  padding-left: 50px;
   position: relative;
+  font-size: 15px;
+  font-weight: 300;
 }
-.card__feature:nth-child(odd) {
+.price-card__option:nth-child(odd) {
   background-color: #2a3438;
 }
 @media screen and (max-width: 1200px) {
-  .card__feature {
+  .price-card__option {
     font-size: 20px;
+    padding-left: 60px;
   }
 }
 @media screen and (max-width: 768px) {
-  .card__feature {
+  .price-card__option {
     font-size: 15px;
-    width: 33vw;
-    padding-left: 7vw;
+    padding-left: 50px;
+    width: 50%;
   }
-  .card__feature:nth-child(odd) {
+  .price-card__option:nth-child(odd) {
     background-color: transparent;
   }
-  .card__feature:nth-child(2), .card__feature:nth-child(3), .card__feature:nth-child(6) {
+  .price-card__option:nth-child(2), .price-card__option:nth-child(3), .price-card__option:nth-child(6) {
     background-color: #2a3438;
   }
 }
-@media screen and (max-width: 768px) and (max-width: 480px) {
-  .card__feature {
-    font-size: clamp(3.125vw, 3.125vw, 15px);
+@media screen and (max-width: 480px) {
+  .price-card__option {
+    font-size: 12px;
+    padding-left: 35px;
+    height: 45px;
   }
 }
-.card__feature::before {
+.price-card__option::before {
   content: "";
   width: 15px;
   height: 13px;
-  padding-left: 22px;
-  background-image: url(https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-green.png);
+  position: absolute;
+  left: 22px;
   background-repeat: no-repeat;
+  background-size: contain;
 }
 @media screen and (max-width: 1200px) {
-  .card__feature::before {
-    background-size: 20px;
-    width: 20px;
+  .price-card__option::before {
+    width: 22px;
     height: 20px;
+    left: 25px;
   }
 }
-.card--business .card__feature::before {
-  background-image: url("https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-blue.png");
+@media screen and (max-width: 480px) {
+  .price-card__option::before {
+    width: 12px;
+    height: 11px;
+    left: 15px;
+  }
 }
-.card--business .card__price-block {
-  background-color: #3a6ba5;
-}
-.card--webshop .card__feature::before {
-  background-image: url("https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-orange.png");
-}
-.card--webshop .card__price-block {
-  background-color: #ec632a;
-}
-
-.button {
+.price-card_order-btn {
   width: 156px;
   height: 40px;
   font-weight: 400;
@@ -259,37 +283,66 @@ body {
   color: #fff;
   border: none;
   margin: 39px auto 40px auto;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  transition: opacity 0.2s;
+}
+.price-card_order-btn:hover {
+  opacity: 0.85;
 }
 @media screen and (max-width: 1200px) {
-  .button {
+  .price-card_order-btn {
     width: 200px;
     height: 60px;
     font-size: 20px;
   }
 }
 @media screen and (max-width: 768px) {
-  .button {
+  .price-card_order-btn {
     width: 156px;
     height: 40px;
     font-size: 15px;
   }
 }
 @media screen and (max-width: 480px) {
-  .button {
-    margin: 20px auto 20px auto;
-    width: clamp(25vw, 25vw, 120px);
-    height: clamp(8.3vw, 8.3vw, 40px);
-    font-size: clamp(3.125vw, 3.125vw, 15px);
+  .price-card_order-btn {
+    width: 120px;
+    height: 40px;
+    font-size: 12px;
+    margin: 20px auto;
   }
 }
-.button--basic {
+.price-card--basic .price-card__option::before {
+  background-image: url("https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-green.png");
+}
+.price-card--basic .price-card__price-block {
   background-color: #5bb189;
 }
-.button--business {
+.price-card--basic .price-card_order-btn {
+  background-color: #5bb189;
+}
+.price-card--business .price-card__option::before {
+  background-image: url("https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-blue.png");
+}
+.price-card--business .price-card__price-block {
   background-color: #3a6ba5;
 }
-.button--webshop {
+.price-card--business .price-card_order-btn {
+  background-color: #3a6ba5;
+}
+.price-card--webshop .price-card__option::before {
+  background-image: url("https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-orange.png");
+}
+.price-card--webshop .price-card__price-block {
   background-color: #ec632a;
+}
+.price-card--webshop .price-card_order-btn {
+  background-color: #ec632a;
+}
+
+.bg {
+  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */
