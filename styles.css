@@ -5,31 +5,36 @@
 }
 
 body {
-  max-width: 1440px;
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   background-color: #141b1c;
   color: #fff;
   font-size: 15px;
-  margin: 0 auto;
-}
-
-.Desktop {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #141b1c;
-  padding: 65px 20px;
 }
 
-.price-cards-container {
+.price-cards {
+  width: 1176px;
+  margin: 65px auto;
   display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  column-gap: 18px;
+}
+@media screen and (max-width: 1200px) {
+  .price-cards {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+    max-width: 80%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .price-cards {
+    width: 100%;
+    padding: 0 15px;
+  }
 }
 
 .price-card {
@@ -46,11 +51,7 @@ body {
     max-width: 500px;
   }
 }
-.price-card--popular {
-  position: relative;
-  overflow: hidden;
-}
-.price-card__ribbon {
+.price-card__popular-label {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,7 +67,7 @@ body {
   z-index: 10;
 }
 @media screen and (max-width: 1200px) {
-  .price-card__ribbon {
+  .price-card__popular-label {
     width: 34vw;
     height: 50px;
     font-size: 20px;
@@ -75,7 +76,7 @@ body {
   }
 }
 @media screen and (max-width: 768px) {
-  .price-card__ribbon {
+  .price-card__popular-label {
     width: 34vw;
     height: 40px;
     font-size: 15px;
@@ -84,7 +85,7 @@ body {
   }
 }
 @media screen and (max-width: 480px) {
-  .price-card__ribbon {
+  .price-card__popular-label {
     width: 120px;
     height: 25px;
     font-size: 10px;
@@ -92,85 +93,94 @@ body {
     right: -45px;
   }
 }
-.price-card__header {
+.price-card__title {
   display: flex;
   flex-direction: column;
-  height: 130px;
-  text-align: center;
-}
-@media screen and (max-width: 1200px) {
-  .price-card__header {
-    height: auto;
-  }
-}
-.price-card_title {
-  font-size: 35px;
-  font-weight: 700;
+  align-items: center;
   margin-top: 32px;
   margin-bottom: 0;
-  text-align: center;
 }
 @media screen and (max-width: 1200px) {
-  .price-card_title {
+  .price-card__title {
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .price-card__title {
+    margin-top: 16px;
+  }
+}
+.price-card__title h2 {
+  font-size: 35px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}
+@media screen and (max-width: 1200px) {
+  .price-card__title h2 {
     font-size: 50px;
   }
 }
 @media screen and (max-width: 768px) {
-  .price-card_title {
+  .price-card__title h2 {
     font-size: 35px;
   }
 }
 @media screen and (max-width: 480px) {
-  .price-card_title {
+  .price-card__title h2 {
     font-size: 27px;
-    margin-top: 16px;
   }
 }
-.price-card__subtitle {
+.price-card__title span {
   font-size: 20px;
   font-weight: 300;
+  text-align: center;
   margin-top: 5px;
   margin-bottom: 31px;
-  text-align: center;
 }
 @media screen and (max-width: 1200px) {
-  .price-card__subtitle {
+  .price-card__title span {
     font-size: 30px;
+    margin-bottom: 40px;
   }
 }
 @media screen and (max-width: 768px) {
-  .price-card__subtitle {
+  .price-card__title span {
     font-size: 20px;
+    margin-bottom: 31px;
   }
 }
 @media screen and (max-width: 480px) {
-  .price-card__subtitle {
+  .price-card__title span {
     font-size: 18px;
     margin-bottom: 18px;
   }
 }
-.price-card__price-block {
+.price-card__price {
   width: 100%;
   height: 105px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-@media screen and (max-width: 480px) {
-  .price-card__price-block {
-    height: 70px;
-  }
-}
-.price-card_price {
   font-size: 55px;
   font-weight: 700;
 }
 @media screen and (max-width: 480px) {
-  .price-card_price {
+  .price-card__price {
+    height: 70px;
     font-size: 40px;
   }
 }
-.price-card_description {
+.price-card__price_green {
+  background-color: #5bb189;
+}
+.price-card__price_blue {
+  background-color: #3a6ba5;
+}
+.price-card__price_orange {
+  background-color: #ec632a;
+}
+.price-card__description {
   width: 320px;
   line-height: 18px;
   text-align: center;
@@ -179,37 +189,37 @@ body {
   font-weight: 300;
 }
 @media screen and (max-width: 1200px) {
-  .price-card_description {
+  .price-card__description {
     font-size: 20px;
     width: 80%;
     line-height: 1.3;
   }
 }
 @media screen and (max-width: 768px) {
-  .price-card_description {
+  .price-card__description {
     font-size: 15px;
   }
 }
 @media screen and (max-width: 480px) {
-  .price-card_description {
+  .price-card__description {
     font-size: 14px;
     margin: 20px auto;
     width: 90%;
   }
 }
-.price-card_options-list {
+.price-card__options-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 @media screen and (max-width: 768px) {
-  .price-card_options-list {
+  .price-card__options-list {
     display: flex;
     flex-wrap: wrap;
   }
 }
 @media screen and (max-width: 480px) {
-  .price-card_options-list {
+  .price-card__options-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
@@ -252,30 +262,38 @@ body {
     height: 45px;
   }
 }
-.price-card__option::before {
-  content: "";
-  width: 15px;
-  height: 13px;
+.price-card__checkmark {
   position: absolute;
   left: 22px;
+  width: 15px;
+  height: 13px;
   background-repeat: no-repeat;
   background-size: contain;
 }
 @media screen and (max-width: 1200px) {
-  .price-card__option::before {
+  .price-card__checkmark {
     width: 22px;
     height: 20px;
     left: 25px;
   }
 }
 @media screen and (max-width: 480px) {
-  .price-card__option::before {
+  .price-card__checkmark {
     width: 12px;
     height: 11px;
     left: 15px;
   }
 }
-.price-card_order-btn {
+.price-card__checkmark_green {
+  background-image: url("https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-green.png");
+}
+.price-card__checkmark_blue {
+  background-image: url("https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-blue.png");
+}
+.price-card__checkmark_orange {
+  background-image: url("https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-orange.png");
+}
+.price-card__order-btn {
   width: 156px;
   height: 40px;
   font-weight: 400;
@@ -288,61 +306,42 @@ body {
   font-size: 15px;
   transition: opacity 0.2s;
 }
-.price-card_order-btn:hover {
+.price-card__order-btn:hover {
   opacity: 0.85;
 }
 @media screen and (max-width: 1200px) {
-  .price-card_order-btn {
+  .price-card__order-btn {
     width: 200px;
     height: 60px;
     font-size: 20px;
   }
 }
 @media screen and (max-width: 768px) {
-  .price-card_order-btn {
+  .price-card__order-btn {
     width: 156px;
     height: 40px;
     font-size: 15px;
   }
 }
 @media screen and (max-width: 480px) {
-  .price-card_order-btn {
+  .price-card__order-btn {
     width: 120px;
     height: 40px;
     font-size: 12px;
     margin: 20px auto;
   }
 }
-.price-card--basic .price-card__option::before {
-  background-image: url("https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-green.png");
-}
-.price-card--basic .price-card__price-block {
+.price-card__order-btn_green {
   background-color: #5bb189;
 }
-.price-card--basic .price-card_order-btn {
-  background-color: #5bb189;
-}
-.price-card--business .price-card__option::before {
-  background-image: url("https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-blue.png");
-}
-.price-card--business .price-card__price-block {
+.price-card__order-btn_blue {
   background-color: #3a6ba5;
 }
-.price-card--business .price-card_order-btn {
-  background-color: #3a6ba5;
-}
-.price-card--webshop .price-card__option::before {
-  background-image: url("https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-orange.png");
-}
-.price-card--webshop .price-card__price-block {
-  background-color: #ec632a;
-}
-.price-card--webshop .price-card_order-btn {
+.price-card__order-btn_orange {
   background-color: #ec632a;
 }
 
-.bg {
-  display: none;
-}
+/*# sourceMappingURL=styles.css.map */
+
 
 /*# sourceMappingURL=styles.css.map */
