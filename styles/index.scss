@@ -1,11 +1,11 @@
 @import 'variables.scss';
 @import 'breakpoints.scss';
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   max-width: 1440px;
   font-family: 'Montserrat', sans-serif;
@@ -13,27 +13,27 @@ body {
   background-color: $cite-bg-color;
   color: $color-white;
   font-size: 15px;
-  box-sizing: border-box;
+  margin: 0 auto;
 }
 
-.prices {
-  width: 1176px;
-  margin: 65px auto 65px auto;
+.Desktop {
   display: flex;
-  column-gap: 18px;
-
-  @include big-tablet {
-    flex-direction: column;
-    align-items: center;
-    row-gap: 30px;
-    max-width: 80%;
-  }
-  @include mobile {
-    width: 100%;
-  }
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $cite-bg-color;
+  padding: 65px 20px;
 }
 
-.card {
+.price-cards-container {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.price-card {
   width: 380px;
   background-color: $card-bg-color;
   display: flex;
@@ -43,6 +43,12 @@ body {
 
   @include big-tablet {
     width: 100%;
+    max-width: 500px;
+  }
+
+  &--popular {
+    position: relative;
+    overflow: hidden;
   }
 
   &__ribbon {
@@ -56,22 +62,32 @@ body {
     font-size: 14px;
     font-weight: $bold-weight;
     position: absolute;
-    top: 4%;
-    left: 70%;
+    top: 20px;
+    right: -40px;
+    z-index: 10;
 
     @include big-tablet {
       width: 34vw;
       height: 50px;
       font-size: 20px;
+      top: 15px;
+      right: -80px;
     }
+
     @include small-tablet {
       width: 34vw;
       height: 40px;
       font-size: 15px;
+      top: 10px;
+      right: -70px;
     }
+
     @include mobile {
-      font-size: clamp(2.5vw, 2.5vw, 12px);
-      height: clamp(5.2vw, 5.2vw, 25px);
+      width: 120px;
+      height: 25px;
+      font-size: 10px;
+      top: 12px;
+      right: -45px;
     }
   }
 
@@ -79,44 +95,52 @@ body {
     display: flex;
     flex-direction: column;
     height: 130px;
+    text-align: center;
 
     @include big-tablet {
       height: auto;
     }
   }
 
-  &__title {
+  &_title {
     font-size: 35px;
     font-weight: $bold-weight;
-    line-height: normal;
-    margin: 32px 0px 0 0px;
+    margin-top: 32px;
+    margin-bottom: 0;
     text-align: center;
+
     @include big-tablet {
       font-size: 50px;
     }
+
     @include small-tablet {
       font-size: 35px;
     }
+
     @include mobile {
-      margin: 16px 0px 0 0px;
-      font-size: clamp(5.62vw, 5.62vw, 27px);
+      font-size: 27px;
+      margin-top: 16px;
     }
   }
 
   &__subtitle {
-    margin: 0px 0px 31px 0px;
-    font-weight: $light-weight;
-    text-align: center;
     font-size: 20px;
+    font-weight: $light-weight;
+    margin-top: 5px;
+    margin-bottom: 31px;
+    text-align: center;
+
     @include big-tablet {
       font-size: 30px;
     }
+
     @include small-tablet {
       font-size: 20px;
     }
+
     @include mobile {
-      margin: 9px 0px 18px 0px;
-      font-size: clamp(3.75vw, 3.75vw, 18px);
+      font-size: 18px;
+      margin-bottom: 18px;
     }
   }
 
@@ -126,42 +150,48 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $basic-price-bgcl;
 
     @include mobile {
-      height: clamp(14.58vw, 14.58vw, 70px);
+      height: 70px;
     }
   }
 
-  &__price {
+  &_price {
     font-size: 55px;
     font-weight: $bold-weight;
+
     @include mobile {
-      font-size: clamp(8.3vw, 8.3vw, 40px);
+      font-size: 40px;
     }
   }
 
-  &__description {
+  &_description {
     width: 320px;
-    max-height: 36px;
     line-height: 18px;
     text-align: center;
-    margin-block: 40px;
-    margin-inline: auto;
+    margin: 40px auto;
+    font-size: 15px;
+    font-weight: $light-weight;
 
     @include big-tablet {
       font-size: 20px;
       width: 80%;
+      line-height: 1.3;
     }
+
+    @include small-tablet {
+      font-size: 15px;
+    }
+
     @include mobile {
-      font-size: clamp(3.75vw, 3.75vw, 18px);
+      font-size: 14px;
+      margin: 20px auto;
       width: 90%;
-      margin-block: clamp(4.16vw, 4.16vw, 20px);
     }
   }
 
-  &__features {
-    list-style-type: none;
+  &_options-list {
+    list-style: none;
     padding: 0;
     margin: 0;
 
@@ -169,181 +199,157 @@ body {
       display: flex;
       flex-wrap: wrap;
     }
+
     @include mobile {
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
   }
 
-  &__feature {
+  &__option {
     height: 50px;
     display: flex;
     align-items: center;
-    padding-left: 22px;
+    padding-left: 50px;
     position: relative;
+    font-size: 15px;
+    font-weight: $light-weight;
 
     &:nth-child(odd) {
       background-color: $card-darkbg-color;
     }
+
     @include big-tablet {
-      font-size: 25px;
+      font-size: 20px;
+      padding-left: 60px;
     }
+
     @include small-tablet {
       font-size: 15px;
-      width: 40vw;
-      padding-left: 7vw;
+      padding-left: 50px;
+      width: 50%;
 
       &:nth-child(odd) {
         background-color: transparent;
       }
+
       &:nth-child(2),
       &:nth-child(3),
       &:nth-child(6) {
         background-color: $card-darkbg-color;
       }
     }
+
     @include mobile {
-      font-size: clamp(3.125vw, 3.125vw, 15px);
+      font-size: 12px;
+      padding-left: 35px;
+      height: 45px;
     }
 
     &::before {
       content: '';
       width: 15px;
       height: 13px;
-      padding-left: 22px;
-      background-image: url(https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-green.png);
+      position: absolute;
+      left: 22px;
       background-repeat: no-repeat;
+      background-size: contain;
 
       @include big-tablet {
-        background-size: 20px;
-        width: 20px;
+        width: 22px;
         height: 20px;
+        left: 25px;
       }
 
-      @include small-tablet {
-        width: 15px;
-        height: 15px;
-        background-size: 15px;
+      @include mobile {
+        width: 12px;
+        height: 11px;
+        left: 15px;
       }
+    }
+  }
+
+  &_order-btn {
+    width: 156px;
+    height: 40px;
+    font-weight: $regular-weight;
+    border-radius: 20px;
+    color: $color-white;
+    border: none;
+    margin: 39px auto 40px auto;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    @include big-tablet {
+      width: 200px;
+      height: 60px;
+      font-size: 20px;
+    }
+
+    @include small-tablet {
+      width: 156px;
+      height: 40px;
+      font-size: 15px;
+    }
+
+    @include mobile {
+      width: 120px;
+      height: 40px;
+      font-size: 12px;
+      margin: 20px auto;
+    }
+  }
+
+  // Basic card (green)
+  &--basic {
+    .price-card__option::before {
+      background-image: url('https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-green.png');
+    }
+
+    .price-card__price-block {
+      background-color: $basic-price-bgcl;
+    }
+
+    .price-card_order-btn {
+      background-color: $basic-price-bgcl;
+    }
+  }
+
+  &--business {
+    .price-card__option::before {
+      background-image: url('https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-blue.png');
+    }
+
+    .price-card__price-block {
+      background-color: $business-price-bgcl;
+    }
+
+    .price-card_order-btn {
+      background-color: $business-price-bgcl;
+    }
+  }
+
+  &--webshop {
+    .price-card__option::before {
+      background-image: url('https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-orange.png');
+    }
+
+    .price-card__price-block {
+      background-color: $webshop-price-bgcl;
+    }
+
+    .price-card_order-btn {
+      background-color: $webshop-price-bgcl;
     }
   }
 }
 
-.price-card_title {
-  font-size: 35px;
-  font-weight: $bold-weight;
-  line-height: normal;
-  margin: 32px 0px 0 0px;
-  text-align: center;
-
-  @include big-tablet {
-    font-size: 50px;
-  }
-  @include small-tablet {
-    font-size: 35px;
-  }
-  @include mobile {
-    margin: 16px 0px 0 0px;
-    font-size: clamp(5.62vw, 5.62vw, 27px);
-  }
-}
-
-.price-card_price {
-  font-size: 55px;
-  font-weight: $bold-weight;
-  @include mobile {
-    font-size: clamp(8.3vw, 8.3vw, 40px);
-  }
-}
-
-.price-card_description {
-  width: 320px;
-  max-height: 36px;
-  line-height: 18px;
-  text-align: center;
-  margin-block: 40px;
-  margin-inline: auto;
-
-  @include big-tablet {
-    font-size: 20px;
-    width: 80%;
-  }
-  @include mobile {
-    font-size: clamp(3.75vw, 3.75vw, 18px);
-    width: 90%;
-    margin-block: clamp(4.16vw, 4.16vw, 20px);
-  }
-}
-
-.price-card_options-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-
-  @include small-tablet {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  @include mobile {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.price-card_order-btn {
-  width: 156px;
-  height: 40px;
-  font-weight: $regular-weight;
-  border-radius: 20px;
-  color: $color-white;
-  border: none;
-  margin: 39px auto 40px auto;
-
-  @include big-tablet {
-    width: 200px;
-    height: 60px;
-    font-size: 20px;
-  }
-  @include small-tablet {
-    width: 156px;
-    height: 40px;
-    font-size: 15px;
-  }
-  @include mobile {
-    margin: 20px auto 20px auto;
-    width: clamp(25vw, 25vw, 120px);
-    height: clamp(8.3vw, 8.3vw, 40px);
-    font-size: clamp(3.125vw, 3.125vw, 15px);
-  }
-}
-
-.card--business {
-  .card__feature::before {
-    background-image: url('https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-blue.png');
-  }
-  .card__price-block {
-    background-color: $business-price-bgcl;
-  }
-}
-
-.card--webshop {
-  .card__feature::before {
-    background-image: url('https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-orange.png');
-  }
-  .card__price-block {
-    background-color: $webshop-price-bgcl;
-  }
-}
-
-
-.button--basic {
-  background-color: $basic-price-bgcl;
-}
-
-.button--business {
-  background-color: $business-price-bgcl;
-}
-
-.button--webshop {
-  background-color: $webshop-price-bgcl;
+.bg {
+  display: none;
 }
