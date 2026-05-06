@@ -1,9 +1,12 @@
+@import 'variables.scss';
+@import 'breakpoints.scss';
+
 body {
   max-width: 1440px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  background-color: #141b1c;
-  color: #fff;
+  font-weight: $light-weight;
+  background-color: $cite-bg-color;
+  color: $color-white;
   font-size: 15px;
   box-sizing: border-box;
 }
@@ -13,286 +16,260 @@ body {
   margin: 72px auto 72px auto;
   display: flex;
   column-gap: 18px;
-}
-@media screen and (max-width: 1200px) {
-  .prices {
+
+  @include big-tablet {
     flex-direction: column;
     align-items: center;
     row-gap: 30px;
     max-width: 80%;
   }
-}
-@media screen and (max-width: 480px) {
-  .prices {
+  @include mobile {
     width: 100%;
   }
 }
 
 .card {
   width: 380px;
-  background-color: #334247;
+  background-color: $card-bg-color;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
-}
-@media screen and (max-width: 1200px) {
-  .card {
+
+  @include big-tablet {
     width: 100%;
   }
-}
-.card__ribbon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 147px;
-  height: 25px;
-  background-color: #dc3f45;
-  transform: rotate(45deg);
-  font-size: 14px;
-  font-weight: 700;
-  position: absolute;
-  top: 4%;
-  left: 70%;
-}
-@media screen and (max-width: 1200px) {
-  .card__ribbon {
-    width: 34vw;
-    height: 50px;
-    font-size: 20px;
+  @include mobile {
   }
-}
-@media screen and (max-width: 768px) {
-  .card__ribbon {
-    width: 34vw;
-    height: 40px;
-    font-size: 15px;
-  }
-}
-@media screen and (max-width: 480px) {
-  .card__ribbon {
-    font-size: clamp(2.5vw, 2.5vw, 12px);
-    height: clamp(5.2vw, 5.2vw, 25px);
-  }
-}
-.card__header {
-  display: flex;
-  flex-direction: column;
-  height: 130px;
-}
-@media screen and (max-width: 1200px) {
-  .card__header {
-    height: auto;
-  }
-}
-.card__title {
-  font-size: 35px;
-  font-weight: 700;
-  line-height: normal;
-  margin: 32px 0px 0 0px;
-  text-align: center;
-}
-@media screen and (max-width: 1200px) {
-  .card__title {
-    font-size: 50px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .card__title {
-    font-size: 35px;
-  }
-}
-@media screen and (max-width: 480px) {
-  .card__title {
-    margin: 16px 0px 0 0px;
-    font-size: clamp(5.62vw, 5.62vw, 27px);
-  }
-}
-.card__subtitle {
-  margin: 0px 0px 31px 0px;
-  font-weight: 300;
-  text-align: center;
-  font-size: 20px;
-}
-@media screen and (max-width: 1200px) {
-  .card__subtitle {
-    font-size: 30px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .card__subtitle {
-    font-size: 20px;
-  }
-}
-@media screen and (max-width: 480px) {
-  .card__subtitle {
-    margin: 9px 0px 18px 0px;
-    font-size: clamp(3.75vw, 3.75vw, 18px);
-  }
-}
-.card__price-block {
-  width: 100%;
-  height: 105px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #5bb189;
-}
-@media screen and (max-width: 480px) {
-  .card__price-block {
-    height: clamp(14.58vw, 14.58vw, 70px);
-  }
-}
-.card__price {
-  font-size: 55px;
-  font-weight: 700;
-}
-@media screen and (max-width: 480px) {
-  .card__price {
-    font-size: clamp(8.3vw, 8.3vw, 40px);
-  }
-}
-.card__description {
-  width: 320px;
-  max-height: 36px;
-  line-height: 18px;
-  text-align: center;
-  margin-block: 40px;
-  margin-inline: auto;
-}
-@media screen and (max-width: 1200px) {
-  .card__description {
-    font-size: 20px;
-    width: 80%;
-  }
-}
-@media screen and (max-width: 480px) {
-  .card__description {
-    font-size: clamp(3.75vw, 3.75vw, 18px);
-    width: 90%;
-    margin-block: clamp(4.16vw, 4.16vw, 20px);
-  }
-}
-.card__features {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-@media screen and (max-width: 768px) {
-  .card__features {
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-@media screen and (max-width: 480px) {
-  .card__features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-}
-.card__feature {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  padding-left: 22px;
-  position: relative;
-}
-.card__feature:nth-child(odd) {
-  background-color: #2a3438;
-}
-@media screen and (max-width: 1200px) {
-  .card__feature {
-    font-size: 20px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .card__feature {
-    font-size: 15px;
-    width: 33vw;
-    padding-left: 7vw;
-  }
-  .card__feature:nth-child(odd) {
-    background-color: transparent;
-  }
-  .card__feature:nth-child(2),
-  .card__feature:nth-child(3),
-  .card__feature:nth-child(6) {
-    background-color: #2a3438;
-  }
-}
-@media screen and (max-width: 768px) and (max-width: 480px) {
-  .card__feature {
-    font-size: clamp(3.125vw, 3.125vw, 15px);
-  }
-}
-.card__feature::before {
-  content: '';
-  width: 15px;
-  height: 13px;
-  padding-left: 22px;
-  background-image: url(https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-green.png);
-  background-repeat: no-repeat;
-}
-@media screen and (max-width: 1200px) {
-  .card__feature::before {
-    background-size: 20px;
-    width: 20px;
-    height: 20px;
-  }
-}
 
-.card--business .card__feature::before {
-  background-image: url('https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-blue.png');
-}
-.card--business .card__price-block {
-  background-color: #3a6ba5;
-}
-.card--webshop .card__feature::before {
-  background-image: url('https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-orange.png');
-}
-.card--webshop .card__price-block {
-  background-color: #ec632a;
+  &__ribbon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 147px;
+    height: 25px;
+    background-color: $red-ribbon-color;
+    transform: rotate(45deg);
+    font-size: 14px;
+    font-weight: $bold-weight;
+    position: absolute;
+    top: 4%;
+    left: 70%;
+
+    @include big-tablet {
+      width: 34vw;
+      height: 50px;
+      font-size: 20px;
+    }
+
+    @include small-tablet {
+      width: 34vw;
+      height: 40px;
+      font-size: 15px;
+    }
+    @include mobile {
+      font-size: clamp(2.5vw, 2.5vw, 12px);
+      height: clamp(5.2vw, 5.2vw, 25px);
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    height: 130px;
+
+    @include big-tablet {
+      height: auto;
+    }
+  }
+  &__title {
+    font-size: 35px;
+    font-weight: $bold-weight;
+    line-height: normal;
+    margin: 32px 0px 0 0px;
+    text-align: center;
+    @include big-tablet {
+      font-size: 50px;
+    }
+    @include small-tablet {
+      font-size: 35px;
+    }
+    @include mobile {
+      margin: 16px 0px 0 0px;
+      font-size: clamp(5.62vw, 5.62vw, 27px);
+    }
+  }
+  &__subtitle {
+    margin: 0px 0px 31px 0px;
+    font-weight: $light-weight;
+    text-align: center;
+    font-size: 20px;
+    @include big-tablet {
+      font-size: 30px;
+    }
+    @include small-tablet {
+      font-size: 20px;
+    }
+    @include mobile {
+      margin: 9px 0px 18px 0px;
+      font-size: clamp(3.75vw, 3.75vw, 18px);
+    }
+  }
+
+  &__price-block {
+    width: 100%;
+    height: 105px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $basic-price-bgcl;
+
+    @include mobile {
+      height: clamp(14.58vw, 14.58vw, 70px);
+    }
+  }
+
+  &__price {
+    font-size: 55px;
+    font-weight: $bold-weight;
+
+    @include mobile {
+      font-size: clamp(8.3vw, 8.3vw, 40px);
+    }
+  }
+  &__description {
+    width: 320px;
+    max-height: 36px;
+    line-height: 18px;
+    text-align: center;
+    margin-block: 40px;
+    margin-inline: auto;
+
+    @include big-tablet {
+      font-size: 20px;
+      width: 80%;
+    }
+
+    @include mobile {
+      font-size: clamp(3.75vw, 3.75vw, 18px);
+      width: 90%;
+      margin-block: clamp(4.16vw, 4.16vw, 20px);
+    }
+  }
+
+  &__features {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    @include small-tablet {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    @include mobile {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  &__feature {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 22px;
+    position: relative;
+
+    &:nth-child(odd) {
+      background-color: $card-darkbg-color;
+    }
+    @include big-tablet {
+      font-size: 20px;
+    }
+    @include small-tablet {
+      font-size: 15px;
+      width: 33vw;
+      padding-left: 7vw;
+
+      &:nth-child(odd) {
+        background-color: transparent;
+      }
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(6) {
+        background-color: $card-darkbg-color;
+      }
+
+      @include mobile {
+        font-size: clamp(3.125vw, 3.125vw, 15px);
+      }
+    }
+
+    &::before {
+      content: '';
+      width: 15px;
+      height: 13px;
+      padding-left: 22px;
+      background-image: url(https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-green.png);
+      background-repeat: no-repeat;
+
+      @include big-tablet {
+        background-size: 20px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  &--business {
+    .card__feature::before {
+      background-image: url('https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-blue.png');
+    }
+    .card__price-block {
+      background-color: $business-price-bgcl;
+    }
+  }
+  &--webshop {
+    .card__feature::before {
+      background-image: url('https://bionic-university.s3.eu-central-1.amazonaws.com/projects/price-cards/checkmark-orange.png');
+    }
+    .card__price-block {
+      background-color: $webshop-price-bgcl;
+    }
+  }
 }
 
 .button {
   width: 156px;
   height: 40px;
-  font-weight: 400;
+  font-weight: $regular-weight;
   border-radius: 20px;
-  color: #fff;
+  color: $color-white;
   border: none;
   margin: 39px auto 40px auto;
-}
-@media screen and (max-width: 1200px) {
-  .button {
+
+  @include big-tablet {
     width: 200px;
     height: 60px;
     font-size: 20px;
   }
-}
-@media screen and (max-width: 768px) {
-  .button {
+  @include small-tablet {
     width: 156px;
     height: 40px;
     font-size: 15px;
   }
-}
-@media screen and (max-width: 480px) {
-  .button {
+  @include mobile {
     margin: 20px auto 20px auto;
     width: clamp(25vw, 25vw, 120px);
     height: clamp(8.3vw, 8.3vw, 40px);
     font-size: clamp(3.125vw, 3.125vw, 15px);
   }
-}
-.button--basic {
-  background-color: #5bb189;
-}
-.button--business {
-  background-color: #3a6ba5;
-}
-.button--webshop {
-  background-color: #ec632a;
+
+  &--basic {
+    background-color: $basic-price-bgcl;
+  }
+  &--business {
+    background-color: $business-price-bgcl;
+  }
+  &--webshop {
+    background-color: $webshop-price-bgcl;
+  }
 }
 
-/*# sourceMappingURL=styles.css.map */
