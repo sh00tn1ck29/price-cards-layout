@@ -61,8 +61,8 @@ body {
     font-size: 14px;
     font-weight: $bold-weight;
     position: absolute;
-    top: 20px;
-    right: -40px;
+    top: 29px;
+    right: -29px;
     z-index: 10;
 
     @include big-tablet {
@@ -226,6 +226,7 @@ body {
     font-size: 15px;
     font-weight: $light-weight;
     padding-left: 59px;
+    line-height: 50px;
 
     &:nth-child(odd) {
       background-color: $card-darkbg-color;
