@@ -96,6 +96,7 @@ body {
     align-items: center;
     margin-top: 32px;
     margin-bottom: 0;
+    max-height: 98px;
 
     @include big-tablet {
       margin-top: 40px;
@@ -339,4 +340,3 @@ body {
     }
   }
 }
-
