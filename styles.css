@@ -153,6 +153,8 @@ body {
 }
 .card__description {
   width: 320px;
+  max-height: 36px;
+  line-height: 18px;
   text-align: center;
   margin-block: 40px;
   margin-inline: auto;
@@ -293,4 +295,3 @@ body {
 }
 
 /*# sourceMappingURL=styles.css.map */
-
