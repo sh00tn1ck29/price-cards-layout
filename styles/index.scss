@@ -138,6 +138,8 @@ body {
   }
   &__description {
     width: 320px;
+    max-height: 36px;
+    line-height: 18px;
     text-align: center;
     margin-block: 40px;
     margin-inline: auto;
