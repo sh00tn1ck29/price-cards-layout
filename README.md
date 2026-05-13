@@ -1,4 +1,4 @@
-# Price-Cards-Page-Project
+# price-cards-layout
 
 
 ### [Project link](https://sh00tn1ck29.github.io/Price-Cards-Page-Project/)
