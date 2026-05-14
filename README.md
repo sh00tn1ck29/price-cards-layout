@@ -1,7 +1,7 @@
 # Price cards layout
 
 
-### [Project link](https://sh00tn1ck29.github.io/Price-Cards-Page-Project/](https://sh00tn1ck29.github.io/price-cards-layout/)
+### [Project link](https://sh00tn1ck29.github.io/price-cards-layout/)
 
 The project features a fully responsive design optimized for various screen sizes:
 
