@@ -1,17 +1,13 @@
-@mixin big-tablet {
-  @media screen and (max-width: $big-tablet-width) {
+@use 'variables' as *;
+
+@mixin tablet {
+  @media screen and (min-width: $tablet-width) {
     @content;
   }
 }
 
-@mixin small-tablet {
-  @media screen and (max-width: $small-tablet-width) {
-    @content;
-  }
-}
-
-@mixin mobile {
-  @media screen and (max-width: $mobile-width) {
+@mixin desktop {
+  @media screen and (min-width: $desktop-width) {
     @content;
   }
 }
